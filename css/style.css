@@ -87,9 +87,9 @@
   background-color: #545454;
 }
 
-.calendar-days td, th {
-/*  border-left:solid #919191 1px;
-  border-top:solid #919191 1px;*/
+.calendar-days td {
+  border-left:solid rgba(145, 145, 145, .4) 1px;
+  border-top:solid rgba(145, 145, 145, .4) 1px;
 }
 
 .calendar-days th {
