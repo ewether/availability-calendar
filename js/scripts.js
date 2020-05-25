@@ -27,7 +27,30 @@ $(document).ready(function() {
   // rightBtn on click -> monthIndex + 1, display that array element
   rightBtn.addEventListener('click', function() {
 
-    currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
+    // currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
+
+    if (monthIndex > 11) {
+      monthIndex = monthArray[0]+' '+currentYear + 1;
+      console.log(monthIndex);
+      currentMonth.innerHTML = monthIndex;
+    } else {
+      currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
+    }
+
+  });
+
+
+    leftBtn.addEventListener('click', function() {
+
+    // currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
+
+    if (monthIndex > 11) {
+      monthIndex = monthArray[0]+' '+currentYear + 1;
+      console.log(monthIndex);
+      currentMonth.innerHTML = monthIndex;
+    } else {
+      currentMonth.innerHTML = monthArray[monthIndex-- + 1]+' '+currentYear;
+    }
 
   });
 
