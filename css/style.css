@@ -35,9 +35,9 @@
 
 .month-year {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 1.4em;
-  width: 24%;
+  /*width: 24%;*/
   margin: 0 auto;
 }
 
