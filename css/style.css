@@ -120,6 +120,9 @@
   cursor: pointer;
 }
 
+#current-day {
+  background-color: #919191;
+}
 
 
 
