@@ -30,16 +30,33 @@ $(document).ready(function() {
 
   // set the way that the month and year will appear on the calendar
 
-  // create cells - create 6 rows
+  // create cells - create 6 rows. start at 0, < 6, increment
 
   // create element 'tr' in row variable
 
-  // create 'td' element in cell variable
-  // create a textNode for each cell in a variable
-  // append the textNode to each cell
-  // append those cells to row
+  // date = 0 (for use in for loop below)
 
+  // for - date starts at 0, < 7, increment (this will take ALL cells and only allow
+  // 7 in each row)
 
+    // if -
+    // create 'td' element in cell variable
+    // create a textNode for each cell in a variable
+    // append the textNode to each cell
+    // append those cells to row
+
+    // else if the date is greater than the amount of days in the month, stop creating rows
+
+    // else create 'td' element in cell variable
+    // create text node for that cell containing date
+    // if todays date, month, and year are equal to date, month, and year - add class to highlight that cell
+    // append the textNode to each cell
+    // append those cells to row
+    // increment date - bc its creating one cell for each day of the month
+
+    // end for loop
+
+    // append rows to table body
 
 
   // checks how many days are in a month
