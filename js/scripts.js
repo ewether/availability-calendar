@@ -2,57 +2,68 @@ $(document).ready(function() {
   // all jQuery will go in here
   const leftBtn = document.getElementById('left-btn');
   const rightBtn = document.getElementById('right-btn');
-  const currentMonth = document.querySelector('.selected-month');
-  // const currentYear = document.querySelector('.year');
-  const weekDay = document.querySelectorAll('.calendar-days th');
-  const numberedDay = document.querySelectorAll('.calendar-days td');
+  const month = document.querySelector('.month');
+  const year = document.querySelector('.year');
+  monthYear = document.querySelector('.month-year');
+  currentMonth = getMonth();
+  currentYear = getYear();
 
-  const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  // calendar starts on current day/month/yr
-  let currentDate = new Date();
-  // gets index number of current month and puts it into variable 'monthIndex'
-  let monthIndex = currentDate.getMonth();
-  // changes month html to the current month & year using its index in monthArray
-  let currentYear = currentDate.getFullYear();
-  currentMonth.innerHTML = monthArray[monthIndex]+' '+currentYear;
+  // next
+  // if currentMonth is equal to 11, increase year by 1, else return currentYear
+  // add 1 to currentMonth and divide by 12
+  // use ternary operators
 
-    // if (currentDate.getMonth() == 11) {
-    //     let current = new Date(currentDate.getFullYear() + 1, 0, 1);
+  // previous
+  // if currentMonth is equal to 0, decrease year by 1, else return currentYear
+  // if currentMonth is less than zero, month is set to 11, else return currentMonth -1
 
-    // } else {
-    //     let current = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-    // }
+  // current year & month should be parsed into the value of the year and month
+  // that means then that the current month and year will display on calendar
 
-  // rightBtn on click -> monthIndex + 1, display that array element
-  rightBtn.addEventListener('click', function() {
+  // displayCalendar(month, year)
+  // today = (new Date(year, month)).getDay();
 
-    // currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
+  // create variable for table body
+  // clear table body html
 
-    if (monthIndex > 11) {
-      monthIndex = monthArray[0]+' '+currentYear + 1;
-      console.log(monthIndex);
-      currentMonth.innerHTML = monthIndex;
-    } else {
-      currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
-    }
+  // set the way that the month and year will appear on the calendar
 
-  });
+  // create cells - create 6 rows. start at 0, < 6, increment
+
+  // create element 'tr' in row variable
+
+  // date = 0 (for use in for loop below)
+
+  // for - date starts at 0, < 7, increment (this will take ALL cells and only allow
+  // 7 in each row)
+
+    // if -
+    // create 'td' element in cell variable
+    // create a textNode for each cell in a variable
+    // append the textNode to each cell
+    // append those cells to row
+
+    // else if the date is greater than the amount of days in the month, stop creating rows
+
+    // else create 'td' element in cell variable
+    // create text node for that cell containing date
+    // if todays date, month, and year are equal to date, month, and year - add class to highlight that cell
+    // append the textNode to each cell
+    // append those cells to row
+    // increment date - bc its creating one cell for each day of the month
+
+    // end for loop
+
+    // append rows to table body
 
 
-    leftBtn.addEventListener('click', function() {
+  // checks how many days are in a month
+  // function daysInMonth(iMonth, iYear) {
+  //   return 32 - new Date(iYear, iMonth, 32).getDate();
+  // }
 
-    // currentMonth.innerHTML = monthArray[monthIndex++ + 1]+' '+currentYear;
-
-    if (monthIndex > 11) {
-      monthIndex = monthArray[0]+' '+currentYear + 1;
-      console.log(monthIndex);
-      currentMonth.innerHTML = monthIndex;
-    } else {
-      currentMonth.innerHTML = monthArray[monthIndex-- + 1]+' '+currentYear;
-    }
-
-  });
 
 });
 

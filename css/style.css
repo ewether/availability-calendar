@@ -45,6 +45,10 @@
   font-weight: 300;
 }
 
+button {
+  outline: none;
+}
+
 .nav-btn {
   background-color: transparent;
   border: .5px solid transparent;
