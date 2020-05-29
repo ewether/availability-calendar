@@ -16,24 +16,19 @@ $(document).ready(function() {
 
   // 2. When user clicks right button, currentMonth + 1
     // 2a. if currentMonth = 11, currentYear + 1
-
-  monthCount = 0;
-
   rightBtn.addEventListener('click', function() {
-    monthCount = monthCount + 1;
-    currentMonth = monthArray[currentMonth + monthCount];
-    console.log(monthCount);
-    // if current month is equal to 11, increase year by one and month starts back at 0
-    // currentYear = (currentMonth === 11) ? currentMonth + 1 : currentYear;
-    // otherwise, increase month by 1
-    monthYear.innerHTML = currentMonth + ' ' + currentYear;
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    monthYear.innerHTML = monthArray[currentMonth] + ' ' + currentYear;
   });
 
   // 3. When user clicks left button, currentMonth - 1
     // 3a. if currentMonth = 0, currentYear - 1
-  function last() {
-
-  }
+  leftBtn.addEventListener('click', function() {
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    monthYear.innerHTML = monthArray[currentMonth] + ' ' + currentYear;
+  });
 
 
 
