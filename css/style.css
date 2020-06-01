@@ -162,7 +162,14 @@ button {
 }
 
 
-
+.available-div {
+  /*margin-top: 1em;*/
+  height: 2em;
+  /*width: 100%;*/
+  position: absolute;
+  background-color: white;
+  color: black;
+}
 
 
 

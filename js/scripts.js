@@ -53,7 +53,7 @@ $(document).ready(function() {
     // currently creates 6 rows and the rows are numbered
     for (let r = 0; r < 6; r++) {
       let row = document.createElement('tr');
-      // let weekDays = document.querySelector('tr');
+      let days = document.querySelector('td');
 
       for (let c = 0; c < 7; c++) {
         if (r === 0 && c < firstDay) {
@@ -74,16 +74,42 @@ $(document).ready(function() {
         }
         else if (c > 0 && c < 6) {
           // if week day is > 1 and < 6
+          // add class available-cell
           cell = document.createElement('td');
           available = document.createElement('div');
           available.classList.add('available-cell');
           cellText = document.createTextNode(date);
+          // cell.onclick = function() {console.log(cellText); };
           cell.appendChild(cellText);
           cell.appendChild(available);
           row.appendChild(cell);
           table.appendChild(row);
           date++;
-          // add class available-cell
+
+          const specificCell = document.querySelectorAll('td');
+          const rows = document.querySelectorAll('tr');
+
+          specificCell.forEach(function(cell){
+            cell.onclick = function() {
+              // adds another row
+              // newRow = table.insertRow(1);
+              // newRow.classList.add('available-div');
+              // newRowContent = document.createTextNode('idk');
+              // newRow.appendChild(newRowContent);
+
+              // adds 2 empty cells
+              div = document.createElement('div');
+              div.classList.add('available-div');
+              cell.insertAdjacentElement('afterend',div);
+
+
+              console.log(cell.innerHTML);
+              // div = document.createElement('div');
+              // div.classList.add('available-div');
+              // cell.appendChild(div);
+            };
+          });
+
         }
         else {
           cell = document.createElement('td');
@@ -98,16 +124,6 @@ $(document).ready(function() {
       table.appendChild(row);
     }
   }
-
-          // $('.numbered-days').on("click", "td", function() {
-          // // cell.addEventListener('click', function() {
-          //   cell.classList.add('cell-info');
-          //   // cellInfo = document.createElement('div');
-          //   // cellInfo.classList.add('cell-info');
-          //   // cell.appendChild(cellInfo);
-          //   // row.appendChild(cell);
-          //   // $(cell).css("paddingTop", "4em");
-          // });
 
 
   // checks how many days are in a month
