@@ -82,28 +82,43 @@ $(document).ready(function() {
           // cell.onclick = function() {console.log(cellText); };
           cell.appendChild(cellText);
           cell.appendChild(available);
+          row.setAttribute("id", (r + 1));
           row.appendChild(cell);
           table.appendChild(row);
           date++;
 
           const specificCell = document.querySelectorAll('td');
-          const rows = document.querySelectorAll('tr');
+          // const specificRow = document.querySelectorAll('tr');
 
           specificCell.forEach(function(cell){
             cell.onclick = function() {
               // adds another row
+
+              // newRow = document.createElement('tr');
+              // newRow.classList.add('available-div');
+              // newRowContent = document.createTextNode('idk');
+              // newRow.appendChild(newRowContent);
+
+              // row.appendChild(newRow);
+
+              // adds row below current row
+              rowId = cell.parentNode.getAttribute('id');
+              console.log(rowId);
+              newRow = table.insertRow(rowId);
+              newRowId = newRow.setAttribute("id", (rowId + 1));
+
               // newRow = table.insertRow(1);
               // newRow.classList.add('available-div');
               // newRowContent = document.createTextNode('idk');
               // newRow.appendChild(newRowContent);
 
-              // adds 2 empty cells
-              div = document.createElement('div');
-              div.classList.add('available-div');
-              cell.insertAdjacentElement('afterend',div);
+              // add empty div beside cell
+              // div = document.createElement('div');
+              // div.classList.add('available-div');
+              // cell.insertAdjacentElement('afterend',div);
 
 
-              console.log(cell.innerHTML);
+              // console.log(cell.innerHTML);
               // div = document.createElement('div');
               // div.classList.add('available-div');
               // cell.appendChild(div);
