@@ -51,19 +51,65 @@ $(document).ready(function() {
     let date = 1;
 
     // currently creates 6 rows and the rows are numbered
-    for (let r = 0; r < 7; r++) {
+    for (let r = 0; r < 6; r++) {
       let row = document.createElement('tr');
+      let days = document.querySelector('td');
 
       for (let c = 0; c < 7; c++) {
         if (r === 0 && c < firstDay) {
           // create empty cell
           cell = document.createElement('td');
-          cellText = document.createTextNode('');
-          cell.appendChild(cellText);
+          emptyCell = document.createTextNode('');
+          cell.classList.add('empty-cell');
+          cell.appendChild(emptyCell);
           row.appendChild(cell);
         }
+        // finish out the current row with empty cells
         else if (date > daysInMonth(month, year)) {
           break
+          // cell = document.createElement('td');
+          // emptyCell = document.createTextNode('');
+          // cell.appendChild(emptyCell);
+          // row.appendChild(cell);
+        }
+        else if (c > 0 && c < 6) {
+          // if week day is > 1 and < 6
+          // add class available-cell
+          cell = document.createElement('td');
+          available = document.createElement('div');
+          available.classList.add('available-cell');
+          cellText = document.createTextNode(date);
+          // cell.onclick = function() {console.log(cellText); };
+          cell.appendChild(cellText);
+          cell.appendChild(available);
+          row.appendChild(cell);
+          table.appendChild(row);
+          date++;
+
+          const specificCell = document.querySelectorAll('td');
+          const rows = document.querySelectorAll('tr');
+
+          specificCell.forEach(function(cell){
+            cell.onclick = function() {
+              // adds another row
+              // newRow = table.insertRow(1);
+              // newRow.classList.add('available-div');
+              // newRowContent = document.createTextNode('idk');
+              // newRow.appendChild(newRowContent);
+
+              // adds 2 empty cells
+              div = document.createElement('div');
+              div.classList.add('available-div');
+              cell.insertAdjacentElement('afterend',div);
+
+
+              console.log(cell.innerHTML);
+              // div = document.createElement('div');
+              // div.classList.add('available-div');
+              // cell.appendChild(div);
+            };
+          });
+
         }
         else {
           cell = document.createElement('td');
@@ -74,6 +120,7 @@ $(document).ready(function() {
           date++;
         }
       }
+      // let clickCell = document.querySelector('td');
       table.appendChild(row);
     }
   }
