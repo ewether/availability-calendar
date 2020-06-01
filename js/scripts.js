@@ -82,31 +82,58 @@ $(document).ready(function() {
           // cell.onclick = function() {console.log(cellText); };
           cell.appendChild(cellText);
           cell.appendChild(available);
+          row.setAttribute("id", (r + 1));
           row.appendChild(cell);
           table.appendChild(row);
           date++;
 
+
           const specificCell = document.querySelectorAll('td');
-          const rows = document.querySelectorAll('tr');
+          // const specificRow = document.querySelectorAll('tr');
+
 
           specificCell.forEach(function(cell){
             cell.onclick = function() {
-              // adds another row
-              // newRow = table.insertRow(1);
-              // newRow.classList.add('available-div');
-              // newRowContent = document.createTextNode('idk');
-              // newRow.appendChild(newRowContent);
+            // $( cell ).one( "click", function() {
+              // adds row below current row
+              rowId = cell.parentNode.getAttribute('id');
+              newRow = table.insertRow(rowId);
 
-              // adds 2 empty cells
-              div = document.createElement('div');
-              div.classList.add('available-div');
-              cell.insertAdjacentElement('afterend',div);
+              newRow.setAttribute('id', 'new-row');
 
+              newRowCell = document.createElement('td');
+              newRowCell.setAttribute('id', 'new-row-cell');
+              $(newRowCell).attr('colspan', 7);
 
-              console.log(cell.innerHTML);
-              // div = document.createElement('div');
-              // div.classList.add('available-div');
-              // cell.appendChild(div);
+              rowDiv = document.createElement('div');
+              rowDiv.setAttribute('id', 'hours-row-div');
+
+              newRowCell.appendChild(rowDiv);
+              newRow.appendChild(newRowCell);
+
+              cell.onclick = function() {
+                if (newRow.style.display === 'none') {
+                  rowId = cell.parentNode.getAttribute('id');
+                  newRow = table.insertRow(rowId);
+
+                  newRow.setAttribute('id', 'new-row');
+
+                  newRowCell = document.createElement('td');
+                  newRowCell.setAttribute('id', 'new-row-cell');
+                  $(newRowCell).attr('colspan', 7);
+
+                  rowDiv = document.createElement('div');
+                  rowDiv.setAttribute('id', 'hours-row-div');
+
+                  newRowCell.appendChild(rowDiv);
+                  newRow.appendChild(newRowCell);
+
+                  newRow.style.display = "block";
+                } else {
+                  newRow.style.display = "none";
+                };
+              };
+
             };
           });
 
