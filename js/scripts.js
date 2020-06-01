@@ -91,27 +91,49 @@ $(document).ready(function() {
           const specificCell = document.querySelectorAll('td');
           // const specificRow = document.querySelectorAll('tr');
 
+
           specificCell.forEach(function(cell){
             cell.onclick = function() {
+            // $( cell ).one( "click", function() {
               // adds row below current row
               rowId = cell.parentNode.getAttribute('id');
-              console.log(rowId);
               newRow = table.insertRow(rowId);
+
+              newRow.setAttribute('id', 'new-row');
+
               newRowCell = document.createElement('td');
               newRowCell.setAttribute('id', 'new-row-cell');
               $(newRowCell).attr('colspan', 7);
+
               rowDiv = document.createElement('div');
               rowDiv.setAttribute('id', 'hours-row-div');
+
               newRowCell.appendChild(rowDiv);
               newRow.appendChild(newRowCell);
 
-              // newRowCell.setAttribute("id", 'new-row-cell');
-              // newRow.setAttribute("id", 'hours-row');
-              // rowDiv = document.createElement('div');
-              // rowDiv.classList.add('hours-row-div');
-              // newRow.appendChild(rowDiv);
-              // for (c === 0; c < 7)
-              // newRowId.setAttribute('id', this.id++);
+              cell.onclick = function() {
+                if (newRow.style.display === 'none') {
+                  rowId = cell.parentNode.getAttribute('id');
+                  newRow = table.insertRow(rowId);
+
+                  newRow.setAttribute('id', 'new-row');
+
+                  newRowCell = document.createElement('td');
+                  newRowCell.setAttribute('id', 'new-row-cell');
+                  $(newRowCell).attr('colspan', 7);
+
+                  rowDiv = document.createElement('div');
+                  rowDiv.setAttribute('id', 'hours-row-div');
+
+                  newRowCell.appendChild(rowDiv);
+                  newRow.appendChild(newRowCell);
+
+                  newRow.style.display = "block";
+                } else {
+                  newRow.style.display = "none";
+                };
+              };
+
             };
           });
 

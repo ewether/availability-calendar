@@ -171,8 +171,13 @@ button {
   color: black;
 }*/
 
+#new-row {
+  /*display: none;*/
+}
+
 #new-row-cell {
   padding: 0;
+  /*display: none;*/
 }
 
 #hours-row-div {
@@ -183,7 +188,9 @@ button {
   padding: 0;
 }
 
-
+/*.isHidden {
+  display: none;
+}*/
 
 
 
