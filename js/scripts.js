@@ -87,41 +87,31 @@ $(document).ready(function() {
           table.appendChild(row);
           date++;
 
+
           const specificCell = document.querySelectorAll('td');
           // const specificRow = document.querySelectorAll('tr');
 
           specificCell.forEach(function(cell){
             cell.onclick = function() {
-              // adds another row
-
-              // newRow = document.createElement('tr');
-              // newRow.classList.add('available-div');
-              // newRowContent = document.createTextNode('idk');
-              // newRow.appendChild(newRowContent);
-
-              // row.appendChild(newRow);
-
               // adds row below current row
               rowId = cell.parentNode.getAttribute('id');
               console.log(rowId);
               newRow = table.insertRow(rowId);
-              newRowId = newRow.setAttribute("id", (rowId + 1));
+              newRowCell = document.createElement('td');
+              newRowCell.setAttribute('id', 'new-row-cell');
+              $(newRowCell).attr('colspan', 7);
+              rowDiv = document.createElement('div');
+              rowDiv.setAttribute('id', 'hours-row-div');
+              newRowCell.appendChild(rowDiv);
+              newRow.appendChild(newRowCell);
 
-              // newRow = table.insertRow(1);
-              // newRow.classList.add('available-div');
-              // newRowContent = document.createTextNode('idk');
-              // newRow.appendChild(newRowContent);
-
-              // add empty div beside cell
-              // div = document.createElement('div');
-              // div.classList.add('available-div');
-              // cell.insertAdjacentElement('afterend',div);
-
-
-              // console.log(cell.innerHTML);
-              // div = document.createElement('div');
-              // div.classList.add('available-div');
-              // cell.appendChild(div);
+              // newRowCell.setAttribute("id", 'new-row-cell');
+              // newRow.setAttribute("id", 'hours-row');
+              // rowDiv = document.createElement('div');
+              // rowDiv.classList.add('hours-row-div');
+              // newRow.appendChild(rowDiv);
+              // for (c === 0; c < 7)
+              // newRowId.setAttribute('id', this.id++);
             };
           });
 

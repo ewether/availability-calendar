@@ -11,14 +11,14 @@
 
 .calendar-container {
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   /*background-color: #545454;*/
 }
 
 .header h1 {
   margin: 1em 0em;
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: 300;
 }
 
@@ -118,13 +118,13 @@ button {
 }
 
 .numbered-days td {
-  height: 3.25em;
+  height: 2.75em;
   letter-spacing: 1px;
   /*text-align: left;*/
   vertical-align: baseline;
   width: 14.285714%;
-  padding-top: .5em;
-  font-size: 1.7em;
+  padding-top: .35em;
+  font-size: 1.9em;
   font-weight: 100;
   /*background-color: #5c5c5c*/
 }
@@ -151,7 +151,7 @@ button {
   height: .3em;
   width: .3em;
   margin: 0 auto;
-  margin-top: .5em;
+  margin-top: .4em;
   background-color: #a1ffaf;
 }
 
@@ -161,18 +161,27 @@ button {
   background-color: white;
 }
 
-
+/*
 .available-div {
-  /*margin-top: 1em;*/
+  margin-top: 1em;
   height: 2em;
-  /*width: 100%;*/
+  width: 100%;
   position: absolute;
   background-color: white;
   color: black;
+}*/
+
+#new-row-cell {
+  padding: 0;
 }
 
-
-
+#hours-row-div {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0;
+}
 
 
 
