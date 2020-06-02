@@ -19,9 +19,9 @@
   "bugs": {
     "url": "https://github.com/ewether/availability-calendar/issues"
   },
-  "homepage": "https://github.com/ewether/availability-calendar#readme"
-}
+  "homepage": "https://github.com/ewether/availability-calendar#readme",
   "engines": {
     "node": ">=10.0.0",
     "npm": ">=6.0.0"
-  },
+  }
+}
