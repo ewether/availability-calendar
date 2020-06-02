@@ -1,7 +1,7 @@
 {
   "name": "availability-calendar",
   "version": "1.0.0",
-  "description": "an availability calendar",
+  "description": "an availability calendar using HTML, CSS, Javascript, and jQuery",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/ewether/availability-calendar.git"
   },
+  "keywords": [
+    "availability",
+    "calendar"
+  ],
   "author": "Elise Wetherholt",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ewether/availability-calendar/issues"
   },
-  "homepage": "https://github.com/ewether/availability-calendar#readme",
-  "keywords": [
-    "availability",
-    "calendar"
-  ]
+  "homepage": "https://github.com/ewether/availability-calendar#readme"
 }
