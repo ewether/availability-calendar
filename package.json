@@ -1,0 +1,23 @@
+{
+  "name": "availability-calendar",
+  "version": "1.0.0",
+  "description": "an availability calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewether/availability-calendar.git"
+  },
+  "author": "Elise Wetherholt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ewether/availability-calendar/issues"
+  },
+  "homepage": "https://github.com/ewether/availability-calendar#readme",
+  "keywords": [
+    "availability",
+    "calendar"
+  ]
+}
