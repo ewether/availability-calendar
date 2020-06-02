@@ -82,21 +82,26 @@ $(document).ready(function() {
           // cell.onclick = function() {console.log(cellText); };
           cell.appendChild(cellText);
           cell.appendChild(available);
+
+          // cell.setAttribute('id', 'week-day-cells';
+
           row.setAttribute("id", (r + 1));
           row.appendChild(cell);
           table.appendChild(row);
           date++;
 
 
-          const specificCell = document.querySelectorAll('td');
+          // const allCells = document.querySelectorAll('td');
           // const specificRow = document.querySelectorAll('tr');
 
+          // cells parent node's id
 
-          specificCell.forEach(function(cell){
-            cell.onclick = function() {
-            // $( cell ).one( "click", function() {
+          // allCells.forEach( function(cell) {
+            cell.addEventListener('click', function() {
               // adds row below current row
-              rowId = cell.parentNode.getAttribute('id');
+              rowId = row.getAttribute('id');
+              thisRow = document.getElementById(rowId);
+
               newRow = table.insertRow(rowId);
 
               newRow.setAttribute('id', 'new-row');
@@ -110,32 +115,9 @@ $(document).ready(function() {
 
               newRowCell.appendChild(rowDiv);
               newRow.appendChild(newRowCell);
+            }, {once : true} );
 
-              cell.onclick = function() {
-                if (newRow.style.display === 'none') {
-                  rowId = cell.parentNode.getAttribute('id');
-                  newRow = table.insertRow(rowId);
-
-                  newRow.setAttribute('id', 'new-row');
-
-                  newRowCell = document.createElement('td');
-                  newRowCell.setAttribute('id', 'new-row-cell');
-                  $(newRowCell).attr('colspan', 7);
-
-                  rowDiv = document.createElement('div');
-                  rowDiv.setAttribute('id', 'hours-row-div');
-
-                  newRowCell.appendChild(rowDiv);
-                  newRow.appendChild(newRowCell);
-
-                  newRow.style.display = "block";
-                } else {
-                  newRow.style.display = "none";
-                };
-              };
-
-            };
-          });
+          // });
 
         }
         else {
