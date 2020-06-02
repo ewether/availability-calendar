@@ -83,7 +83,7 @@ $(document).ready(function() {
           cell.appendChild(cellText);
           cell.appendChild(available);
 
-          cell.setAttribute('id', (cellText));
+          // cell.setAttribute('id', 'week-day-cells';
 
           row.setAttribute("id", (r + 1));
           row.appendChild(cell);
