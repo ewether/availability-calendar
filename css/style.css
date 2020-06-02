@@ -172,7 +172,7 @@ button {
 }*/
 
 #new-row {
-  /*display: none;*/
+  /*display: block;*/
 }
 
 #new-row-cell {
