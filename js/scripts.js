@@ -96,26 +96,69 @@ $(document).ready(function() {
 
           // cells parent node's id
 
+
+
+
           // allCells.forEach( function(cell) {
             cell.addEventListener('click', function() {
               // adds row below current row
               rowId = row.getAttribute('id');
-              thisRow = document.getElementById(rowId);
+              // thisRow = document.getElementById(rowId);
 
               newRow = table.insertRow(rowId);
 
-              newRow.setAttribute('id', 'new-row');
+              newRow.classList.add('new-row');
 
               newRowCell = document.createElement('td');
-              newRowCell.setAttribute('id', 'new-row-cell');
+              newRowCell.classList.add('new-row-cell');
               $(newRowCell).attr('colspan', 7);
 
               rowDiv = document.createElement('div');
-              rowDiv.setAttribute('id', 'hours-row-div');
+              rowDiv.classList.add('new-row-div');
 
               newRowCell.appendChild(rowDiv);
               newRow.appendChild(newRowCell);
+
+
+              // newRow
+              // newRowCell
+              // rowDiv
+
+
+              // show new row
+              function show(elem) {
+                elem.classList.add('is-visible');
+              };
+
+              // hide new row
+              function hide(elem) {
+                elem.classList.remove('is-visible');
+              };
+
+              // toggle new row visibility
+              function toggle(elem) {
+                elem.classList.toggle('is-visible');
+              };
+
+
+              toggle(newRow);
+              toggle(newRowCell);
+              toggle(rowDiv);
+
+
+              // toggle(addedRow);
+              // toggle(addedRowCell);
+              // toggle(addedDiv);
+
+
+
             }, {once : true} );
+
+
+
+
+
+
 
           // });
 
