@@ -146,11 +146,6 @@ $(document).ready(function() {
               toggle(rowDiv);
 
 
-              // toggle(addedRow);
-              // toggle(addedRowCell);
-              // toggle(addedDiv);
-
-
 
             }, {once : true} );
 
