@@ -167,7 +167,7 @@ button {
   background-color: #a1ffaf;
 }
 
-.cell-info {
+#cell-info {
   height: 2em;
   width: 4em;
   background-color: white;
