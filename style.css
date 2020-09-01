@@ -159,13 +159,13 @@ button {
   background-color: #a1ffaf;
 }
 
-/*.available-cell {
+.available-cell {
   height: .3em;
   width: .3em;
   margin: 0 auto;
   margin-top: .4em;
   background-color: #a1ffaf;
-}*/
+}
 
 .cell-info {
   height: 2em;
