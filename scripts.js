@@ -92,77 +92,7 @@ $(document).ready(function() {
           row.setAttribute("id", (r + 1));
           row.appendChild(cell);
           tbody.appendChild(row);
-          // console.log(row);
           date++;
-
-
-          // let availableCell = document.querySelector('.available-cell');
-          cell.addEventListener('click', function() {
-            // let cellInfo = document.createElement('tr');
-            // cellInfo.classList.add('cell-info');
-            rowId = row.getAttribute('id');
-            console.log(rowId);
-            // availableCell = row.insertCell;
-            tbody.insertRow(rowId);
-            // console.log(cellInfo);
-          });
-
-
-
-          // for each available cell
-            // on cell click -> create div underneath
-
-          // let availableCell = document.querySelector('.available-cell');
-          // console.log(availableCell);
-
-          // cells.forEach(function(cell) {
-          //   cell.addEventListener('click', function() {
-
-          //   });
-          // });
-
-
-          // allCells.forEach( function(cell) {
-            // cell.addEventListener('click', function() {
-            //   // adds row below current row
-            //   rowId = row.getAttribute('id');
-            //   // thisRow = document.getElementById(rowId);
-
-            //   newRow = tbody.insertRow(rowId);
-
-            //   newRow.classList.add('new-row');
-
-            //   newRowCell = document.createElement('td');
-            //   newRowCell.classList.add('new-row-cell');
-            //   $(newRowCell).attr('colspan', 7);
-
-            //   rowDiv = document.createElement('div');
-            //   rowDiv.classList.add('new-row-div');
-
-            //   newRowCell.appendChild(rowDiv);
-            //   newRow.appendChild(newRowCell);
-
-            //   // show new row
-            //   function show(elem) {
-            //     elem.classList.add('is-visible');
-            //   };
-
-            //   // hide new row
-            //   function hide(elem) {
-            //     elem.classList.remove('is-visible');
-            //   };
-
-            //   // toggle new row visibility
-            //   function toggle(elem) {
-            //     elem.classList.toggle('is-visible');
-            //   };
-
-
-            //   toggle(newRow);
-            //   toggle(newRowCell);
-            //   toggle(rowDiv);
-
-            // }, {once : true} );
         }
 
         else {
@@ -174,28 +104,22 @@ $(document).ready(function() {
           date++;
         }
       }
-      // let clickCell = document.querySelector('td');
       tbody.appendChild(row);
-    }
-  }
+    };
 
+    // on cell click, adds a row below it
+    $('tbody tr td').click(function() {
+      // add new row after the closest row
+      var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
+      $(this).closest('tr').after($newRow);
+    });
+  };
 
   // checks how many days are in a month
   function daysInMonth(iMonth, iYear) {
       return 32 - new Date(iYear, iMonth, 32).getDate();
-  }
-
+  };
 });
-
-
-
-
-
-
-
-
-// function containing calendar
-  // inside containing calendar, include availability slots on weekdays
 
 
 
