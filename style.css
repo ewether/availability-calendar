@@ -151,15 +151,7 @@ button {
   opacity: 0;
 }
 
-.green-dot {
-  height: .3em;
-  width: .3em;
-  margin: 0 auto;
-  margin-top: .4em;
-  background-color: #a1ffaf;
-}
-
-.available-cell {
+.green-square {
   height: .3em;
   width: .3em;
   margin: 0 auto;
@@ -171,6 +163,18 @@ button {
   height: 2em;
   width: 4em;
   background-color: white;
+}
+
+#available {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
 
 /*
