@@ -85,14 +85,35 @@ $(document).ready(function() {
         else if (c > 0 && c < 6) {
           cell = document.createElement('td');
           available = document.createElement('div');
-          available.classList.add('available-cell');
+          available.classList.add('green-square');
           cellText = document.createTextNode(date);
           cell.appendChild(cellText);
           cell.appendChild(available);
+          cell.setAttribute("id", (c + 1) + ' ' + 'available');
+
+
+
+          cell.addEventListener('click', function() {
+            var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
+            $(this).closest('tr').after($newRow);
+          });
+
+
+
           row.setAttribute("id", (r + 1));
           row.appendChild(cell);
           tbody.appendChild(row);
           date++;
+
+
+
+          $('#available').click(function(){
+            if ( $('#video-over').css('visibility') == 'hidden' )
+              $('#video-over').css('visibility','visible');
+            else
+              $('#video-over').css('visibility','hidden');
+          });
+
         }
 
         else {
@@ -107,13 +128,23 @@ $(document).ready(function() {
       tbody.appendChild(row);
     };
 
+
+
     // on cell click, adds a row below it
-    $('tbody tr td').click(function() {
-      // add new row after the closest row
+    var $available = ('#available');
+    $(available).one( "click", function() {
+
+      // get id from clicked cell
+      var $cellId = $(this).attr('id');
+      console.log($cellId);
+
+      // add new row with td after the closest row
       var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
       $(this).closest('tr').after($newRow);
     });
   };
+
+
 
   // checks how many days are in a month
   function daysInMonth(iMonth, iYear) {
