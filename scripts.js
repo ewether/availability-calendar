@@ -93,10 +93,10 @@ $(document).ready(function() {
 
 
 
-          cell.addEventListener('click', function() {
-            var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
-            $(this).closest('tr').after($newRow);
-          });
+          // cell.addEventListener('click', function() {
+          //   var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
+          //   $(this).closest('tr').after($newRow);
+          // });
 
 
 
@@ -107,12 +107,12 @@ $(document).ready(function() {
 
 
 
-          $('#available').click(function(){
-            if ( $('#video-over').css('visibility') == 'hidden' )
-              $('#video-over').css('visibility','visible');
-            else
-              $('#video-over').css('visibility','hidden');
-          });
+          // $('#available').click(function(){
+          //   if ( $('#video-over').css('visibility') == 'hidden' )
+          //     $('#video-over').css('visibility','visible');
+          //   else
+          //     $('#video-over').css('visibility','hidden');
+          // });
 
         }
 
@@ -127,6 +127,8 @@ $(document).ready(function() {
       }
       tbody.appendChild(row);
     };
+
+
 
 
 
