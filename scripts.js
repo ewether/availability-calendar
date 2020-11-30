@@ -186,12 +186,12 @@ $(document).ready(function() {
           // $tbody.append($row);
           // $date++;
 
-          // cell = document.createElement('td');
-          // cellText = document.createTextNode(date);
-          // cell.appendChild(cellText);
-          // row.appendChild(cell);
-          // table.appendChild(row);
-          // date++;
+          cell = document.createElement('td');
+          cellText = document.createTextNode(date);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+          table.appendChild(row);
+          date++;
         }
       }
 
