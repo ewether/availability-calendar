@@ -9,9 +9,28 @@
   background-color: #545454;
 }
 
+.container {
+  max-width: 1100px;
+  margin: 4em auto 0;
+  display: flex;
+}
+
+.time-slots {
+  width: 25%;
+  height: auto;
+  background-color: #474747;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.time-header {
+  background-color: #474747;
+}
+
 .calendar-container {
-  margin: 0 auto;
-  width: 70%;
+  width: 75%;
+  max-width: 800px;
+  margin-left: 2em;
   /*background-color: #545454;*/
 }
 
@@ -27,11 +46,8 @@
   justify-content: space-between;
   background-color: #474747;
   align-items: center;
-  height: 4em;
+  height: 4.5em;
   width: 100%;
-/*  border-right: .5px solid #919191;
-  border-top: .5px solid #919191;
-  border-left: .5px solid #919191;*/
   border-radius: 4px 4px 0px 0px;
 }
 
@@ -40,7 +56,6 @@
   justify-content: space-around;
   background-color: #474747;
   font-size: 1.7em;
-  /*width: 24%;*/
   margin: 0 auto;
 }
 
@@ -62,14 +77,12 @@ button {
 .nav-btn i {
   width: 1.5em;
   height: 1.5em;
-  /*padding: 0 1em;*/
   line-height: 1.5em;
   color: #919191;
   background-color: #474747;
 }
 
 .nav-btn i:hover {
-  /*opacity: .91;*/
   cursor: pointer;
   color: #a3a3a3;
 }
@@ -92,13 +105,6 @@ button {
   -moz-border-bottom-left-radius:4px;
   border-bottom-right-radius: 4px;
   -moz-border-bottom-right-radius:4px;
-  /*border: .5px solid #919191;*/
-  /*background-color: #545454;*/
-}
-
-.table td {
-/*  border-left:solid rgba(145, 145, 145, .4) 1px;
-  border-top:solid rgba(145, 145, 145, .4) 1px;*/
 }
 
 .table th {
@@ -113,30 +119,23 @@ button {
 }
 
 .week-days tr {
-  /*border: .5px solid #919191;*/
   height: 2em;
 }
 
 .numbered-days td {
-  height: 2.75em;
+  height: 3em;
   letter-spacing: 1px;
-  /*text-align: left;*/
   vertical-align: baseline;
   width: 14.285714%;
   padding-top: .35em;
   font-size: 1.9em;
   font-weight: 100;
-  /*background-color: #5c5c5c*/
 }
 
 .numbered-days td:hover {
   background-color: #5c5c5c;
   cursor: pointer;
 }
-
-/*.empty-cell {
-  content: '';
-}*/
 
 .empty-cell:hover {
   background-color: transparent;
@@ -151,7 +150,7 @@ button {
   opacity: 0;
 }
 
-.green-dot {
+.green-square {
   height: .3em;
   width: .3em;
   margin: 0 auto;
@@ -159,18 +158,22 @@ button {
   background-color: #a1ffaf;
 }
 
-/*.available-cell {
-  height: .3em;
-  width: .3em;
-  margin: 0 auto;
-  margin-top: .4em;
-  background-color: #a1ffaf;
-}*/
-
-.cell-info {
+#cell-info {
   height: 2em;
   width: 4em;
   background-color: white;
+}
+
+#available {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
 
 /*

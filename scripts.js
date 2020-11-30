@@ -1,5 +1,6 @@
 $(document).ready(function() {
   // all jQuery will go in here
+
   const leftBtn = document.getElementById('left-btn');
   const rightBtn = document.getElementById('right-btn');
   let monthYear = document.querySelector('.month-year');
@@ -10,173 +11,134 @@ $(document).ready(function() {
   let currentMonth = today.getMonth();
   let currentYear = today.getFullYear();
 
-  const weekDays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+  // const weekDays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
   const monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   // 1. Display current month and year on calendar
   monthYear.innerHTML = monthArray[currentMonth] + ' ' + currentYear;
   createCells(currentMonth, currentYear);
 
-  // 2. When user clicks right button, currentMonth + 1
-    // 2a. if currentMonth = 11, currentYear + 1
+  // 2. When user clicks right button, currentMonth, currentYear, and relative cells are displayed
   rightBtn.addEventListener('click', function() {
+    // if current month is the 12th month (11 in array), add 1 to the current year
+      // else, display the current year
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    // the current month is the current month + 1 (from array) divided by 12
     currentMonth = (currentMonth + 1) % 12;
+    // inner html of the month/year on calendar is the index of current month from month array and the current year
     monthYear.innerHTML = monthArray[currentMonth] + ' ' + currentYear;
+    // createCells function is called according to the original values of currentMonth and currentYear
     createCells(currentMonth, currentYear);
   });
 
-  // 3. When user clicks left button, currentMonth - 1
-    // 3a. if currentMonth = 0, currentYear - 1
+  // 3. When user clicks right button, currentMonth, currentYear, and relative cells are displayed
   leftBtn.addEventListener('click', function() {
+    // if current month is the 1st month (0 in array), subtract 1 from the current year
+      // else, display the current year
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    // if current month is the 1st month, display last month on leftBtn click, otherwise subtract 1 from current month
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     monthYear.innerHTML = monthArray[currentMonth] + ' ' + currentYear;
     createCells(currentMonth, currentYear);
   });
 
+  // the value of the year that has been selected (using right/left arrows) is parsed into the currentYear/Month
   function parse() {
-    currentYear = parstInt(selectYear.value);
-    currentMonth = parstInt(selectYear.value);
-    createCells(currentMonth, currentYear);
+    // currentYear = parstInt(selectYear.value);
+    // currentMonth = parstInt(selectYear.value);
+    // createCells(currentMonth, currentYear);
   }
 
-
+  // creates cells according to the month and year
   function createCells(month, year) {
+    // finds the index of the first day of specified month/year
     let firstDay = new Date(year, month).getDay();
 
-    $tbody = $('table > tbody');
-    // console.log($tbody);
-    // table.innerHTML = '';
+    // defines tbody as tbody
+    let tbody = document.querySelector('#calendar-tbody');
+    tbody.innerHTML = '';
 
-    let $date = 1;
+    let date = 1;
 
-    // create 6 rows
+    // initialize row as 0, for row less than 7 increase row by 1
     for (let r = 0; r < 6; r++) {
+      // row = create tr element
+      let row = document.createElement('tr');
+      // days = select all td elements
+      let days = document.querySelector('td');
 
-      var $row = $('table > tbody > tr');
-      var $cell = $('table > tbody > tr > td').addClass('table-cell');
-      // console.log($cell);
-
-      // var row = document.createElement('tr');
-      // let days = document.querySelector('td');
-
-
-      // 1.   on weekday td click -> add div underneath that row
-      // 2.   div should include info about that specific td
-
-
-      // create 7 cells per row
+      // initializes cell as 0, create 7 cells
       for (let c = 0; c < 7; c++) {
-        // on the first row, cells before the 1st day of the month should be empty
+        // if row is 0 and cell is before the first day of the month, create empty cells
         if (r === 0 && c < firstDay) {
-          $emptyCell = $cell.addClass("empty-cell").html('');
-
-          // // cell = document.createElement('td');
-          // emptyCell = document.createTextNode('');
-          // // cell.classList.add('empty-cell');
-
-          $cell.append($emptyCell);
-          $row.append($cell);
-          $tbody.append($row);
+          cell = document.createElement('td');
+          emptyCell = document.createTextNode('');
+          cell.classList.add('empty-cell');
+          cell.appendChild(emptyCell);
+          row.appendChild(cell);
         }
-        // finish out the current row with empty cells
-        else if ($date > daysInMonth(month, year)) {
+        // if date is greater than the amount of days in the month, break
+        else if (date > daysInMonth(month, year)) {
           break
         }
+        // if a cell in a row is greater than 0 and less than 6 (weekdays), add green square to cell
         else if (c > 0 && c < 6) {
-          // if week day is > 1 and < 6
-          // add class available-cell
-
-          // var $cell = $('td').addClass('table-cell');
-          // $cell.addClass("green-dot");
-
-          // cell = document.createElement('td');
-          // available = document.createElement('div');
-          // available.classList.add('available-cell');
-
-          // var $cellText = $cell.html($('date'));
-
-          // $cell.append($cellText);
-          // cell.appendChild(available);
-          // $cell.html($('date'));
-
-          // $cell.attr('id', 'week-day-cells');
-
-          // $row.attr("id", (r + 1));
-
-          // $row.append($cell);
-          // $tbody.append($row);
-          // $date++;
-
-
-          // const allCells = document.querySelectorAll('td');
-          // const specificRow = document.querySelectorAll('tr');
-
-          // cells parent node's id
+          cell = document.createElement('td');
+          available = document.createElement('div');
+          available.classList.add('green-square');
+          cellText = document.createTextNode(date);
+          cell.appendChild(cellText);
+          cell.appendChild(available);
+          cell.setAttribute("id", (c + 1) + ' ' + 'available');
 
 
 
-
-          // allCells.forEach( function(cell) {
-
-
-            // cell.addEventListener('click', function() {
-            //   // adds row below current row
-            //   rowId = row.getAttribute('id');
-            //   // thisRow = document.getElementById(rowId);
-
-            //   newRow = table.insertRow(rowId);
-
-            //   newRow.classList.add('new-row');
-
-            //   newRowCell = document.createElement('td');
-            //   newRowCell.classList.add('new-row-cell');
-            //   $(newRowCell).attr('colspan', 7);
-
-            //   rowDiv = document.createElement('div');
-            //   rowDiv.classList.add('new-row-div');
-
-            //   newRowCell.appendChild(rowDiv);
-            //   newRow.appendChild(newRowCell);
-
-
-              // newRow
-              // newRowCell
-              // rowDiv
-
-
-            //   // show new row
-            //   function show(elem) {
-            //     elem.classList.add('is-visible');
-            //   };
-
-            //   // hide new row
-            //   function hide(elem) {
-            //     elem.classList.remove('is-visible');
-            //   };
-
-            //   // toggle new row visibility
-            //   function toggle(elem) {
-            //     elem.classList.toggle('is-visible');
-            //   };
-
-
-            //   toggle(newRow);
-            //   toggle(newRowCell);
-            //   toggle(rowDiv);
-
-
-
-            // }, {once : true} );
-
-
-
-
-
-
-
+          // cell.addEventListener('click', function() {
+          //   var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
+          //   $(this).closest('tr').after($newRow);
           // });
+
+
+
+          row.setAttribute("id", (r + 1));
+          row.appendChild(cell);
+          tbody.appendChild(row);
+          date++;
+
+
+
+          // $('#available').click(function(){
+          //   if ( $('#video-over').css('visibility') == 'hidden' )
+          //     $('#video-over').css('visibility','visible');
+          //   else
+          //     $('#video-over').css('visibility','hidden');
+          // });
+
+        }
+
+        else {
+          cell = document.createElement('td');
+          cellText = document.createTextNode(date);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+          tbody.appendChild(row);
+          date++;
+        }
+      }
+      tbody.appendChild(row);
+    };
+
+
+
+
+
+    // on cell click, adds a row below it
+    var $available = ('#available');
+    $(available).one( "click", function() {
+
+      // get id from clicked cell
+      var $cellId = $(this).attr('id');
+      console.log($cellId);
 
         }
         else {
@@ -195,20 +157,13 @@ $(document).ready(function() {
         }
       }
 
-      $tbody.append($row);
-    }
-  }
 
 
   // checks how many days are in a month
   function daysInMonth(iMonth, iYear) {
       return 32 - new Date(iYear, iMonth, 32).getDate();
-  }
-
+  };
 });
-
-
-
 
 
 
