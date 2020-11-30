@@ -140,11 +140,22 @@ $(document).ready(function() {
       var $cellId = $(this).attr('id');
       console.log($cellId);
 
-      // add new row with td after the closest row
-      var $newRow = ('<tr id="new-row"><td id="cell-info"></td></tr>')
-      $(this).closest('tr').after($newRow);
-    });
-  };
+        }
+        else {
+          // $cell.append(document.createTextNode($('date')));
+
+          // $row.append($cell);
+          // $tbody.append($row);
+          // $date++;
+
+          cell = document.createElement('td');
+          cellText = document.createTextNode(date);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+          table.appendChild(row);
+          date++;
+        }
+      }
 
 
 
